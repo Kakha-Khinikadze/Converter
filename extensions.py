@@ -29,6 +29,6 @@ class Converter:
             raise APIException(f'Не удалось обработать количество {amount}')
 
         r = requests.get(f'https://api.exchangeratesapi.io/latest?base={quote_ticker}&symbols={base_ticker}')
-        total_base = json.loads(r.content)["rates"][keys[base]]
+        total_base = json.loads(r.content)[keys[base]]
         total_base = total_base * amount
         return total_base
